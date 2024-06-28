@@ -1,10 +1,11 @@
-// src/components/Cart.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../store/reducer';
 
 function Cart() {
-  const cart = useSelector(state => state.cart.cart);
+  const cart = useSelector(state => {
+    console.log('State:', state);
+    return state.cart.cart});
   const dispatch = useDispatch();
 
   const handleRemoveFromCart = item => {

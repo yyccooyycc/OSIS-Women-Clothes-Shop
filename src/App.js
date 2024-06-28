@@ -5,12 +5,17 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Shopping Cart</h1>
-      </header>
-      <Menu />
-      <Cart />
+    <div>
+      <h1>Shopping Cart</h1>
+      <div className="container">
+        <div className="menu">
+          <Menu />
+        </div>
+        <div className="cart">
+          <Cart />
+        </div>
+      </div>
+      <footer></footer>
     </div>
   );
 }
