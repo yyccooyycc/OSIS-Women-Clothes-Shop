@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/reducer';
 
 
 
@@ -22,10 +23,6 @@ const items=[
 ];
 const Menu = () => {
   const dispatch = useDispatch();
-
-  const addToCart = item => {
-    dispatch({ type: 'ADD_TO_CART', payload: item });
-  }
   return (
     <div>
       <h2>Menu</h2>
@@ -33,7 +30,7 @@ const Menu = () => {
         {items.map(item => (
           <li key={item.id}>
             {item.name} - ${item.price}
-            <button onClick={() => addToCart(item)}>Add to Cart</button>
+            <button onClick={() => dispatch(addToCart(item))}>Add to Cart</button>
           </li>
         ))}
       </ul>

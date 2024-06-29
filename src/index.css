@@ -58,16 +58,22 @@ button:hover {
 .container {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
   max-width: 1200px;
+  gap: 20px;
 }
 
 .menu, .cart {
-  width: 100%;
+  flex: 1;
   background-color: #fff;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+}
+
+.menu ul, .cart ul {
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
 footer {

@@ -3,12 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../store/reducer';
 
 function Cart() {
-  const cart = useSelector(state => {
-    console.log('State:', state);
-    return state.cart.cart});
+  const cart = useSelector(state => state.cart.cart);
   const dispatch = useDispatch();
 
   const handleRemoveFromCart = item => {
+    console.log('Removing items:',item)
     dispatch(removeFromCart(item));
 };
 
