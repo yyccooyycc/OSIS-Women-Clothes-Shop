@@ -10,12 +10,20 @@ const cartSlice= createSlice({
     initialState: initialState,
     reducers: {
         addToCart: (state, action) => {
-            console.log('Adding to cart:', action.payload);
-            state.cart.push(action.payload);
+            const itemIndex=state.cart.findIndex(item=>item.id===action.payload.id);
+            if(itemIndex>=0){
+                state.cart[itemIndex].quantity+=1;
+            }else{
+                state.cart.push({...action.payload,quantity:1});
+            }
         },
         removeFromCart: (state, action) => {
-            console.log('Removing from cart:', action.payload);
-            state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+            const itemIndex=state.cart.findIndex(item=>item.id===action.payload.id);
+            if(itemIndex>=0){
+                state.cart[itemIndex].quantity-=1;
+            }else{
+                state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+            }
         },
     }
 });

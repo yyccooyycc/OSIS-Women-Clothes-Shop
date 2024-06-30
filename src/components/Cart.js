@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useCallback, useMemo} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../store/reducer';
 
@@ -6,10 +6,13 @@ function Cart() {
   const cart = useSelector(state => state.cart.cart);
   const dispatch = useDispatch();
 
-  const handleRemoveFromCart = item => {
-    console.log('Removing items:',item)
+  const handleRemoveFromCart = useCallback(item => {
     dispatch(removeFromCart(item));
-};
+},[dispatch]);
+
+  const totalPrice=useMemo(()=>{
+    return cart.reduce((total,item)=>total+item.price*item.quantity,0)
+  },[cart])
 
 return (
   <div>
@@ -17,11 +20,12 @@ return (
     <ul>
       {cart.map(item => (
         <li key={item.id}>
-          {item.name} - ${item.price}
+          {item.name} : ${item.price} x {item.quantity}
           <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
         </li>
       ))}
     </ul>
+    <div>Total Price: $ {totalPrice}</div>
   </div>
 );
 }
