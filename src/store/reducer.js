@@ -20,9 +20,11 @@ const cartSlice= createSlice({
         removeFromCart: (state, action) => {
             const itemIndex=state.cart.findIndex(item=>item.id===action.payload.id);
             if(itemIndex>=0){
-                state.cart[itemIndex].quantity-=1;
-            }else{
+                if(state.cart[itemIndex].quantity>1){
+                    state.cart[itemIndex].quantity-=1;
+                }else{
                 state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+                }
             }
         },
     }
