@@ -1,6 +1,6 @@
 import React,{useCallback, useMemo} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../store/reducer';
+import { removeFromCart } from '../store/cartSlice';
 
 function Cart() {
   const cart = useSelector(state => state.cart.cart);
