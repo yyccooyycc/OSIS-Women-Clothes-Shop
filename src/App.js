@@ -2,19 +2,19 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect,
+  Routes,
+  Navigate,
 } from "react-router-dom";
-import ProtectedRoute from "./ProtectedRoute";
-import {store} from './store';
+import ProtectedRoute from "./components/ProtectedRoute";
+import store from './store/store';
 import Home from "./components/Home";
 import Login from "./components/Login";
-// import Menu from "./components/Menu";
-// import Cart from "./components/Cart";
+import Menu from "./components/Menu";
+import Cart from "./components/Cart";
 
 import "./App.css";
 import { Provider, useDispatch, useSelector } from "react-redux";
-import { logout } from ".authSlice";
+import { logout } from "./store/authSlice";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -27,15 +27,23 @@ function App() {
     <Router>
       <div>
         {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
-        <Switch>
-          <Route path="/login" component={Login} />
-          <ProtectedRoute
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
             path="/home"
-            component={Home}
-            isAuthenticated={isAuthenticated}
+            element={<ProtectedRoute isAuthenticated={isAuthenticated}><Home /></ProtectedRoute>}
           />
-          <Redirect from="/" to={isAuthenticated ? "/home" : "/login"} />
-        </Switch>
+          <Route
+            path="/menu"
+            element={<ProtectedRoute isAuthenticated={isAuthenticated}><Menu /></ProtectedRoute>}
+          />
+          <Route
+            path="/cart"
+            element={<ProtectedRoute isAuthenticated={isAuthenticated}><Cart /></ProtectedRoute>}
+          />
+          <Route path="/" element={<Navigate to={isAuthenticated ? "/home" : "/login"} />} 
+          /> 
+        </Routes>
       </div>
     </Router>
   );
