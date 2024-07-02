@@ -26,9 +26,9 @@ function App() {
   };
   return (
     <Router>
-      <Navbar />
       <div>
         {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
+        <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
