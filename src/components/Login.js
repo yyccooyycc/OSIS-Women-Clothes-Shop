@@ -16,8 +16,7 @@ function Login(){
         <div>
             <button onClick={handleLogin}>Login</button>
             <h2>Home</h2>
-            <h2>Menu</h2>
-            <h2>Cart</h2>
+            <p>Welcome to our restaurant</p>
         </div>
     );
 }

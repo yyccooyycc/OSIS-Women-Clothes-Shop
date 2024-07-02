@@ -15,6 +15,7 @@ import Cart from "./components/Cart";
 import "./App.css";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { logout } from "./store/authSlice";
+import Navbar from "./components/Navbar";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -25,6 +26,7 @@ function App() {
   };
   return (
     <Router>
+      <Navbar />
       <div>
         {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
         <Routes>
