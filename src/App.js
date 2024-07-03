@@ -11,11 +11,11 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
-import Layout from "./components/Layout";
+import Header from "./components/Ｈeader";
 import { useTranslation } from 'react-i18next';
 
 
-import "./App.css";
+import "./App.scss";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { logout } from "./store/authSlice";
 import './i18n';
@@ -29,12 +29,12 @@ function App() {
     dispatch(logout());
   };
 
-  const { t, i18n } = useTranslation();
+  const { t} = useTranslation();
 
   return (
     <Router>
-      <Layout />
-      <div>
+      <Header />
+      <div className="content">
         {isAuthenticated && <button onClick={handleLogout}>{t('Logout')}</button>}
         <Routes>
           <Route path="/login" element={<Login />} />
