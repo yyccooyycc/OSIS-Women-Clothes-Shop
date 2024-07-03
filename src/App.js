@@ -11,11 +11,14 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
+import Layout from "./components/Layout";
+
 
 import "./App.css";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { logout } from "./store/authSlice";
-import Navbar from "./components/Navbar";
+import './i18n';
+
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -26,9 +29,9 @@ function App() {
   };
   return (
     <Router>
+      <Layout />
       <div>
         {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
-        <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
