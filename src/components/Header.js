@@ -12,7 +12,7 @@ const Header=()=>{
       <header className={styles.header}>
         <div className={styles.navContainer}>
           <Link to="/" className={styles.siteName}>
-            {t("title")}{" "}
+            {t("title")}
           </Link>
           <nav className={styles.navbar}>
             <Link to="/">{t("Home")}</Link>

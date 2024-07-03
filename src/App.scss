@@ -37,6 +37,12 @@
   }
 }
 
-.content{
-  padding-top: 60px;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  padding-top: 70px; /* 確保與header高度一致 */
 }

@@ -11,7 +11,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
-import Header from "./components/Ｈeader";
+import Header from "./components/Header";
 import { useTranslation } from 'react-i18next';
 
 
@@ -29,7 +29,7 @@ function App() {
     dispatch(logout());
   };
 
-  const { t} = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <Router>
@@ -65,18 +65,6 @@ function Root(){
     </Provider>
   )
 
-    // <div>
-    //   <h1>Shopping Cart</h1>
-    //   <div className="container">
-    //     <div className="menu">
-    //       <Menu />
-    //     </div>
-    //     <div className="cart">
-    //       <Cart />
-    //     </div>
-    //   </div>
-    //   <footer></footer>
-    // </div>
 
 }
 
