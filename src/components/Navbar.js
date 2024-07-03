@@ -10,7 +10,6 @@ const Navbar=()=>{
     };
     return <nav className="nav">
         <Link  to="/" className="site-title">{t('title')} </Link>
-        <ul></ul>
         <ul>
             <li><Link  to="/">{t('Home')}</Link></li>
             <li><Link  to="/menu">{t('Menu')}</Link></li>

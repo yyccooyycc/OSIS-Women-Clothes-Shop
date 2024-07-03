@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Layout from "./components/Layout";
+import { useTranslation } from 'react-i18next';
 
 
 import "./App.css";
@@ -27,11 +28,14 @@ function App() {
   const handleLogout = () => {
     dispatch(logout());
   };
+
+  const { t, i18n } = useTranslation();
+
   return (
     <Router>
       <Layout />
       <div>
-        {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
+        {isAuthenticated && <button onClick={handleLogout}>{t('Logout')}</button>}
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route

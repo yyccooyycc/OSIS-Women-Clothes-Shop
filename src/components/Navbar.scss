@@ -2,12 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
+  background-color: #fff0e9;
+  width: 100%;
+
 }
 
 .site-title {
   font-size: 24px;
-  color: #2468b1;
+  color: #ec5425;
   text-decoration: none;
+  flex:1;
 }
 
 ul {
