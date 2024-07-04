@@ -15,7 +15,8 @@ import Header from "./components/Header";
 import { useTranslation } from 'react-i18next';
 
 
-import "./App.scss";
+import './styles/styles.scss';
+import "./styles/App.scss";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { logout } from "./store/authSlice";
 import './i18n';
@@ -34,7 +35,6 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className="content">
         {isAuthenticated && <button onClick={handleLogout}>{t('Logout')}</button>}
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -53,7 +53,6 @@ function App() {
           <Route path="/" element={<Navigate to={isAuthenticated ? "/home" : "/login"} />} 
           /> 
         </Routes>
-      </div>
     </Router>
   );
 }

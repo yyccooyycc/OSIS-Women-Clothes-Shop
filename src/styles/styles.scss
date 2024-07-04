@@ -1,0 +1,25 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  background-color: #e2f4fb;
+}
+
+.navbar {
+  background-color: #1f376d;
+}
+
+.navbar-brand {
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.nav-link {
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
+}

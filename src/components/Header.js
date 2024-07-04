@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Header.module.scss';
+import '../styles/styles.scss';
 import { useTranslation } from 'react-i18next';
 
 const Header=()=>{
@@ -9,23 +9,30 @@ const Header=()=>{
         i18n.changeLanguage(lng);
     };
     return (
-      <header className={styles.header}>
-        <div className={styles.navContainer}>
-          <Link to="/" className={styles.siteName}>
+      <div className="container">
+        <header className="navbar navbar-expand-lg">
+          <Link to="/" className="navbar-brand">
             {t("title")}
           </Link>
-          <nav className={styles.navbar}>
-            <Link to="/">{t("Home")}</Link>
-            <Link to="/menu">{t("Menu")}</Link>
-            <Link to="/cart">{t("Cart")}</Link>
-          </nav>
-          <div className={styles.languageSwitcher}>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link to="/">{t("Home")}</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/menu">{t("Menu")}</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/cart">{t("Cart")}</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="ml-auto">
             <button onClick={() => changeLanguage("en")}>en</button>
             <button onClick={() => changeLanguage("zh")}>zh</button>
           </div>
-          <button>{t("login")}</button>
-        </div>
-      </header>
+        </header>
+      </div>
     );
 
 }
