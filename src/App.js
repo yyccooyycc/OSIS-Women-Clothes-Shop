@@ -44,11 +44,11 @@ function App() {
           />
           <Route
             path="/menu"
-            element={<ProtectedRoute isAuthenticated={isAuthenticated}><Menu /></ProtectedRoute>}
+            element={<Menu />}
           />
           <Route
             path="/cart"
-            element={<ProtectedRoute isAuthenticated={isAuthenticated}><Cart /></ProtectedRoute>}
+            element={<Cart />}
           />
           <Route path="/" element={<Navigate to={isAuthenticated ? "/home" : "/login"} />} 
           /> 
