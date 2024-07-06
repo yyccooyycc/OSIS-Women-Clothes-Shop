@@ -12,30 +12,18 @@ import Login from "./components/Login";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
-import { useTranslation } from 'react-i18next';
-
 
 import './styles/styles.scss';
 import "./styles/App.scss";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { logout } from "./store/authSlice";
+import { Provider, useSelector } from "react-redux";
 import './i18n';
 
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-
-  const {t} = useTranslation();
-
   return (
     <Router>
       <Header />
-        {isAuthenticated && <button onClick={handleLogout}>{t('Logout')}</button>}
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
