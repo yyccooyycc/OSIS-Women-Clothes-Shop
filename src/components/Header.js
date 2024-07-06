@@ -26,9 +26,9 @@ const Header=()=>{
     return (
       <div className="container">
         <header className="navbar navbar-expand-lg">
-          <Link to="/" className="navbar-brand">
+          <h2 to="/" className="navbar-brand">
             {t("title")}
-          </Link>
+          </h2>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
@@ -43,8 +43,8 @@ const Header=()=>{
             </ul>
           </div>
           <div className="ml-auto">
-            <button onClick={() => changeLanguage("en")}>en</button>
-            <button onClick={() => changeLanguage("zh")}>zh</button>
+            <button onClick={() => changeLanguage("en")}>English</button>
+            <button onClick={() => changeLanguage("zh")}>中文</button>
             { isAuthenticated && <button onClick={handleLogout}>{t("Logout")}</button>}
             { !isAuthenticated && <button onClick={handleLogin}>{t("Login")}</button>}
           </div>

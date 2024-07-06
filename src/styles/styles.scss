@@ -6,10 +6,12 @@ body {
 
 .navbar {
   background-color: #1f376d;
-}
+  height:max-content;
+} 
 
 .navbar-brand {
   color: #fff;
+  padding-left: 100px;
 
   &:hover {
     color: #fff;
