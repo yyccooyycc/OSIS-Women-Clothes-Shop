@@ -5,6 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { Provider, useSelector } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute";
 import store from './store/store';
 import Home from "./components/Home";
@@ -15,7 +16,6 @@ import Header from "./components/Header";
 
 import './styles/styles.scss';
 import "./styles/App.scss";
-import { Provider, useSelector } from "react-redux";
 import './i18n';
 
 
