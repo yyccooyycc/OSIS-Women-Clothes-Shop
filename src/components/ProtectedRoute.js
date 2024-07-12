@@ -9,7 +9,7 @@ function ProtectedRoute({children}) {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     
     if(!isAuthenticated){
-        return <Navigate to="/login"/>
+        return <Navigate to="/home"/>
     }
     return children;
 }

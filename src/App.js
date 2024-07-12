@@ -24,23 +24,23 @@ function App() {
   return (
     <Router>
       <Header />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/home"
-            element={<ProtectedRoute isAuthenticated={isAuthenticated}><Home /></ProtectedRoute>}
-          />
-          <Route
-            path="/menu"
-            element={<Menu />}
-          />
-          <Route
-            path="/cart"
-            element={<Cart />}
-          />
-          <Route path="/" element={<Navigate to={isAuthenticated ? "/home" : "/login"} />} 
-          /> 
-        </Routes>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Login />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/home" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/"
+          element={<Navigate to={isAuthenticated ? "/home" : "/login"} />}
+        />
+      </Routes>
     </Router>
   );
 }
