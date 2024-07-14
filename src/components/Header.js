@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/styles.scss';
+import '../styles/index.scss'
 import { useTranslation } from 'react-i18next';
 import { useSelector,useDispatch } from "react-redux";
 import { login,logout } from "../store/authSlice";

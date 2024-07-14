@@ -1,4 +1,3 @@
-// src/components/HeroBanner.js
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../styles/HeroBanner.scss";
@@ -27,19 +26,19 @@ const HeroBanner = () => {
     >
       <SwiperSlide>
         <img
-          src="/images/catia-dombaxe-lECqVvkkrsg-unsplash.jpg"
+          src={require("../assets/images/catia-dombaxe-lECqVvkkrsg-unsplash.jpg")}
           alt="Banner 1"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="/images/insung-yoon-DaXtJRlqCxY-unsplash.jpg"
+          src={require("../assets/images/insung-yoon-DaXtJRlqCxY-unsplash.jpg")}
           alt="Banner 2"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="/images/mathieu-deslauriers-aMThIz2KAT4-unsplash.jpg"
+          src={require("../assets/images/mathieu-deslauriers-aMThIz2KAT4-unsplash.jpg")}
           alt="Banner 3"
         />
       </SwiperSlide>

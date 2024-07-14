@@ -1,0 +1,38 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family:emoji;
+  background-image: url('../assets/images/kirill-x_VOtnVJeGE-unsplash.jpg');
+}
+
+.navbar {
+  background-color: #1f376d;
+  height: max-content;
+}
+
+.navbar-brand {
+  color: #fff;
+  padding-left: 100px;
+  font-style: italic;
+  font-size: larger;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.nav-item a {
+  color:white;
+}
+
+.nav-item a:hover {
+  color:lightgrey;
+}
+
+.nav-link {
+  color: #fff;
+
+  &:hover {
+    color: lightgrey;
+  }
+}
