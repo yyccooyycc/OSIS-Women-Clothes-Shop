@@ -33,9 +33,6 @@ const Header=()=>{
     return (
       <div className="container">
         <header className="navbar navbar-expand-lg">
-          <h2 to="/" className="navbar-brand">
-            {t("title")}
-          </h2>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
@@ -57,6 +54,11 @@ const Header=()=>{
                 </Link>
               </li>
             </ul>
+          </div>
+          <div className="collapse navbar-collapse">
+            <h1 to="/" className="navbar-brand">
+              {t("title")}
+            </h1>
           </div>
           <div className="ml-auto">
             <button onClick={() => changeLanguage("en")}>English</button>
