@@ -5,8 +5,12 @@
     "Login": "Login",
     "Logout": "Logout",
     "Menu": "Menu",
-    "title": "OASIS",
-    "Welcome":"Welcome to OTS shop",
+    "Tops":"Tops",
+    "Shorts":"Shorts",
+    "Skirts":"Skirts",
+    "Jeans":"Jeans",
+    "Title": "OASIS",
+    "Welcome":"Welcome to OASIS shop",
     "Add_to_Cart":"Add to Cart",
     "Remove":"Remove"
 
