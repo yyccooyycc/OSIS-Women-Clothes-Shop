@@ -6,7 +6,7 @@ body {
 }
 
 .navbar {
-  background-color: #263048;
+  background-color: #698474;
   height: max-content;
 }
 
@@ -36,23 +36,30 @@ body {
       position: relative;
 
       .dropdown-toggle {
+        appearance: none;
+        -webkit-appearance: none; 
+        -moz-appearance: none; 
+        padding-right: 0; 
         background: none;
         border: none;
-        color: white;
         font-size: 20px;
         &:hover {
           cursor: pointer;
+          appearance: none;
         }
       }
 
       .dropdown-menu {
         display: none;
         position: absolute;
+        width: 50vw;
+        height: auto;
         top: 100%;
         left: 0;
         background-color: white;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 4px;
+        z-index: 1000;
         .dropdown-item {
           padding: 10px;
           color: black;
