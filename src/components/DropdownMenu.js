@@ -67,7 +67,10 @@ const DropdownMenu = () => {
           </svg>
         </button>
       </div>
-      <div className={`dropdown-menu ${isOpen ? "show" : ""}`}>
+      <div
+        className={`dropdown-menu ${isOpen ? "show" : ""}`}
+        style={{ position: "unset" }}
+      >
         {isOpen && (
           <ul>
             {menuItems.map((item, index) => (
