@@ -12,6 +12,7 @@ import {
   faSignInAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import CartIcon from "./CartIcon";
+import DropdownMenu from "./DropdownMenu";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -33,49 +34,7 @@ const Header = () => {
       <header className="navbar navbar-expand-lg">
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <div className="dropdown">
-                <button
-                  className="dropdown-toggle"
-                  type="button"
-                  id="menuDropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <svg
-                    clipRule="evenodd"
-                    fillRule="evenodd"
-                    strokeLinejoin="round"
-                    strokeMiterlimit="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ width: "24px", height: "24px", fill: "white" }}
-                  >
-                    <path
-                      d="m11.6 11c0-.552-.448-1-1-1-1.655 0-4.945 0-6.6 0-.552 0-1 .448-1 1v9c0 .552.448 1 1 1h6.6c.552 0 1-.448 1-1 0-2.092 0-6.908 0-9zm9.4 6c0-.552-.448-1-1-1h-6c-.538 0-1 .477-1 1v3c0 .552.448 1 1 1h6c.552 0 1-.448 1-1zm0-13c0-.552-.448-1-1-1-1.537 0-4.463 0-6 0-.552 0-1 .448-1 1v9.6c0 .552.448 1 1 1h6c.552 0 1-.448 1-1 0-2.194 0-7.406 0-9.6zm-9.4 0c0-.552-.448-1-1-1-1.655 0-4.945 0-6.6 0-.552 0-1 .448-1 1v3.6c0 .552.448 1 1 1h6.6c.552 0 1-.448 1-1 0-1.017 0-2.583 0-3.6z"
-                      fillRule="nonzero"
-                    />
-                  </svg>
-                </button>
-                <div className="dropdown-menu">
-                  <Link to="/menu" className="dropdown-item">
-                    {t("Menu")}
-                  </Link>
-                  <Link to="/menu" className="dropdown-item">
-                    {t("Tops")}
-                  </Link>
-                  <Link to="/menu" className="dropdown-item">
-                    {t("Shorts")}
-                  </Link>
-                  <Link to="/menu" className="dropdown-item">
-                    {t("Skirts")}
-                  </Link>
-                  <Link to="/menu" className="dropdown-item">
-                    {t("Jeans")}
-                  </Link>
-                </div>
-              </div>
-            </li>
+                 <DropdownMenu />
             <li className="nav-item">
               <Link to="/cart">
                 <CartIcon itemCount={cartItemCount} />
