@@ -57,6 +57,10 @@ body {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 4px;
         z-index: 1000;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: opacity 0.3s ease, transform 0.3s ease;
         .dropdown-item {
           padding: 10px;
           color: black;
@@ -71,17 +75,26 @@ body {
           }
         }
         &.show{
-          display: flex;
-          top:0;
+          display: block;
+          opacity: 1;
+          transform: scaleY(1);
         }
       
       }
 
       &:hover .dropdown-menu {
         display: block;
-      }
-
+      } 
 }
+
+.dropdown-icon {
+  transition: transform 0.5s ease; 
+}
+
+.dropdown-icon:hover {
+  transform: rotate(180deg);
+  cursor: pointer;
+} 
 
 .nav-link {
   color: #fff;
