@@ -73,6 +73,7 @@ const DropdownMenu = () => {
             ))}
           </ul>
         )}
+        <img src={require("../assets/images/kaboompics_snowy-oasis-calm-and-cozy-winter-scenes-snow-covered-patio-and-bamboo-33989.jpg")} alt="dropdownImage1" width="1150px"></img>
       </div>
     </li>
   );
