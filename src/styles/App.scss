@@ -75,7 +75,6 @@ body {
           }
         }
         &.show{
-          display: block;
           opacity: 1;
           transform: scaleY(1);
         }
@@ -85,6 +84,12 @@ body {
       &:hover .dropdown-menu {
         display: block;
       } 
+}
+
+.dropdown-items{
+  text-align: center;
+  flex-direction: column;
+  padding: 40px
 }
 
 .dropdown-icon {

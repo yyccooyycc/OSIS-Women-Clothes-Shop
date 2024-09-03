@@ -8,7 +8,7 @@ const DropdownMenu = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(dropdownState$.getValue().isOpen);
   const { t } = useTranslation();
-  const menuItems = ["T-shirt", "Top", "Skirt"];
+  const menuItems = ["BEST SELLERS", "TOPS","T-SHIRTS", "DRESSES", "SKIRTS", "PANTS", "JACKETS", "COATS"];
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -59,21 +59,24 @@ const DropdownMenu = () => {
           padding: "60px",
           top: 0,
           left: 0,
-          width: "70vw",
+          width: "80vw",
           height: "100vh",
           backgroundColor: "#DFD3C3",
           zIndex: 1000,
-          display: isOpen ? "block" : "none",
+          display: isOpen ? "flex" : "none",
         }}
-      >
+      > 
         {isOpen && (
           <ul>
+            <div style={{ height: "100px" }}></div>
             {menuItems.map((item, index) => (
-              <li key={index}>{t(item)}</li>
+              <li className="dropdown-items" key={index}>{t(item)}</li>
             ))}
           </ul>
         )}
-        <img src={require("../assets/images/kaboompics_snowy-oasis-calm-and-cozy-winter-scenes-snow-covered-patio-and-bamboo-33989.jpg")} alt="dropdownImage1" width="1150px"></img>
+        <ul>
+          <img src={require("../assets/images/kaboompics_snowy-oasis-calm-and-cozy-winter-scenes-snow-covered-patio-and-bamboo-33989.jpg")} alt="dropdownImage1" width="1184.39px"></img>
+        </ul>
       </div>
     </li>
   );
