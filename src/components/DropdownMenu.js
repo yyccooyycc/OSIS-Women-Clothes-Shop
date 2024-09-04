@@ -67,15 +67,20 @@ const DropdownMenu = () => {
         }}
       > 
         {isOpen && (
+          <div  style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
           <ul>
-            <div style={{ height: "100px" }}></div>
             {menuItems.map((item, index) => (
               <li className="dropdown-items" key={index}>{t(item)}</li>
             ))}
           </ul>
+          </div>
         )}
         <ul>
-          <img src={require("../assets/images/kaboompics_snowy-oasis-calm-and-cozy-winter-scenes-snow-covered-patio-and-bamboo-33989.jpg")} alt="dropdownImage1" width="1184.39px"></img>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <img src={require("../assets/images/bamboo_left.jpg")} alt="bamboo_left" style={{ width:"25vw", height:"auto",paddingRight:"20px" }} ></img>
+          <img src={require("../assets/images/bamboo_right.jpg")} alt="bamboo_right" style={{width:"25vw", height:"760px" }}></img>
+
+        </div>
         </ul>
       </div>
     </li>
