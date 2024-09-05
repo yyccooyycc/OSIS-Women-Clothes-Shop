@@ -85,15 +85,15 @@ const DropdownMenu = () => {
           }}
         >
           <img
-            src={require("../assets/images/bamboo_left.jpg")}
-            alt="bamboo_left"
-            style={{ width: "30vw", height: "90vh",paddingRight: "20px" }}
+            src={require("../assets/images/dresses.jpg")}
+            alt="dresses"
+            style={{ width: "60vw", height: "90vh",paddingLeft: "20px" }}
           ></img>
-          <img
+          {/* <img
             src={require("../assets/images/bamboo_right.jpg")}
             alt="bamboo_right"
             style={{ width: "30vw", height: "90vh",paddingRight: "40px" }}
-          ></img>
+          ></img> */}
         </div>
       </div>
     </li>

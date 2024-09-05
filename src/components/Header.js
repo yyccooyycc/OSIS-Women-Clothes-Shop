@@ -41,11 +41,6 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/">
-                <FontAwesomeIcon icon={faHome} />
-              </Link>
-            </li>
-            <li className="nav-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -59,12 +54,15 @@ const Header = () => {
           </ul>
         </div>
         <div className="collapse navbar-collapse">
+          <Link to="/">
           <img
             src={require("../assets/images/OSIS_white_transparent.png")}
             alt="Banner 4"
             width="180px"
             style={{ background: "none" }}
           />
+          </Link>
+
         </div>
         <div className="ml-auto">
           <button onClick={() => changeLanguage("en")}>English</button>
