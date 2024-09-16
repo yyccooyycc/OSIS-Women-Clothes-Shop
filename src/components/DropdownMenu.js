@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { toggle, dropdownState$ } from "../store/dropdownSlice";
 import "../styles/App.scss";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const DropdownMenu = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,10 @@ const DropdownMenu = () => {
       subscription.unsubscribe();
     };
   }, []);
+
+  const handleItemClick=()=>{
+    dispatch(toggle());
+  }
 
   return (
     <li className="nav-item" ref={dropdownRef}>
@@ -67,11 +72,13 @@ const DropdownMenu = () => {
       >
         {isOpen && (
           <div  style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <ul>
+          <ul className="menu-list">
             {menuItems.map((item, index) => (
-              <li className="dropdown-items" key={index}>
+              <Link to="/menu" className="menu-link"onClick={handleItemClick}>
+                <li className="dropdown-items" key={index}>
                 {t(item)}
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
           </div>
@@ -89,11 +96,6 @@ const DropdownMenu = () => {
             alt="dresses"
             style={{ width: "60vw", height: "90vh",paddingLeft: "20px" }}
           ></img>
-          {/* <img
-            src={require("../assets/images/bamboo_right.jpg")}
-            alt="bamboo_right"
-            style={{ width: "30vw", height: "90vh",paddingRight: "40px" }}
-          ></img> */}
         </div>
       </div>
     </li>

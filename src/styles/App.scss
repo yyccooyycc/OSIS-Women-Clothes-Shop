@@ -86,10 +86,37 @@ body {
       } 
 }
 
+.menu-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap:10px;
+
+}
+
+.menu-link{
+  width: 150px;
+  height: 100px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+
 .dropdown-items{
   text-align: center;
-  flex-direction: column;
-  padding: 40px
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height:100%;
+  border-radius:10%;
+  font-size: 18px;
+  color: white;
+  list-style: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #96f4a2;
+  }
 }
 
 .dropdown-icon {
