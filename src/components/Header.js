@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { login, logout } from "../store/authSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHome,
   faSignOutAlt,
   faSignInAlt,
 } from "@fortawesome/free-solid-svg-icons";

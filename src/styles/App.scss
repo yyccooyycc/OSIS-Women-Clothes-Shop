@@ -102,6 +102,7 @@ body {
 }
 
 .dropdown-items{
+  background-color: #9a7563;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -115,7 +116,7 @@ body {
   transition: color 0.3s ease;
 
   &:hover {
-    color: #96f4a2;
+    color: #9b886c;
   }
 }
 
