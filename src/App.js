@@ -14,9 +14,9 @@ import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 
-import './styles/styles.scss';
 import "./styles/App.scss";
 import './i18n';
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -41,6 +41,7 @@ function App() {
           element={<Navigate to={isAuthenticated ? "/home" : "/login"} />}
         />
       </Routes>
+      <Footer />
     </Router>
   );
 }
