@@ -22,27 +22,31 @@ import Footer from "./components/Footer";
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route
-          path="/login"
-          element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Login />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/home" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route
-          path="/"
-          element={<Navigate to={isAuthenticated ? "/home" : "/login"} />}
-        />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="app-container">
+      <div className="content">
+        <Router>
+          <Header />
+          <Routes>
+            <Route
+              path="/login"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Login />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/home" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/"
+              element={<Navigate to={isAuthenticated ? "/home" : "/login"} />}
+            />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
+    </div>
   );
 }
 
