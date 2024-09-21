@@ -71,16 +71,26 @@ const DropdownMenu = () => {
         }}
       >
         {isOpen && (
-          <div  style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <ul className="menu-list">
-            {menuItems.map((item, index) => (
-              <Link to="/menu" className="menu-link"onClick={handleItemClick}>
-                <li className="dropdown-items" key={index}>
-                {t(item)}
-                </li>
-              </Link>
-            ))}
-          </ul>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <ul className="menu-list">
+              {menuItems.map((item, index) => (
+                <Link
+                  to="/menu"
+                  className="menu-link"
+                  onClick={handleItemClick}
+                >
+                  <li className="dropdown-items" key={`${item}-${index}`}>
+                    {t(item)}
+                  </li>
+                </Link>
+              ))}
+            </ul>
           </div>
         )}
         <div
@@ -94,7 +104,7 @@ const DropdownMenu = () => {
           <img
             src={require("../assets/images/dresses.jpg")}
             alt="dresses"
-            style={{ width: "60vw", height: "90vh",paddingLeft: "20px" }}
+            style={{ width: "60vw", height: "90vh", paddingLeft: "20px" }}
           ></img>
         </div>
       </div>
