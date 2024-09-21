@@ -7,8 +7,11 @@ const Footer = () => {
       sx={{
         backgroundColor: '#698474',
         color: 'white',
-        padding: '20px',
-        mt: 'auto'
+        padding: '10px',
+        mt: 'auto',
+        width: '100%',
+        textAlign: 'left',
+        position:'relative'
       }}
     >
       <Grid2 container spacing={2}>
