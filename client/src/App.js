@@ -17,6 +17,7 @@ import Header from "./components/Header";
 import "./styles/App.scss";
 import './i18n';
 import Footer from "./components/Footer";
+import ProductGrid from "./components/Products";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               />
               <Route path="/home" element={<Home />} />
               <Route path="/menu" element={<Menu />} />
+              <Route path="/tops" element={<ProductGrid />} />
               <Route path="/cart" element={<Cart />} />
               <Route
                 path="/"

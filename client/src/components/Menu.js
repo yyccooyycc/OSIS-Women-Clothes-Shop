@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
 import { useTranslation } from 'react-i18next';
+import ProductGrid from './Products';
 
 
 const items=[
@@ -28,6 +29,7 @@ const Menu = () => {
   return (
     <div>
       <h2>{t('Menu')}</h2>
+      <ProductGrid/>
       <ul>
         {items.map(item => (
           <li key={item.id}>

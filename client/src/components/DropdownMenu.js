@@ -81,7 +81,7 @@ const DropdownMenu = () => {
             <ul className="menu-list">
               {menuItems.map((item, index) => (
                 <Link
-                  to="/menu"
+                  to="/tops"
                   className="menu-link"
                   key={`${item}-${index}`}
                   onClick={handleItemClick}
