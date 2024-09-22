@@ -83,6 +83,7 @@ const DropdownMenu = () => {
                 <Link
                   to="/menu"
                   className="menu-link"
+                  key={`${item}-${index}`}
                   onClick={handleItemClick}
                 >
                   <li className="dropdown-items" key={`${item}-${index}`}>
