@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 // MongoDB URL
 const url = 'mongodb://localhost:27017';
-const dbName = 'mongodb';
+const dbName = 'OSISWomenClothings';
 
 
 const correctedDirname = __dirname.replace(/^\//, '');
@@ -29,7 +29,9 @@ const imagesFolder = path.join(correctedDirname, '../../client/src/assets/images
       // Ensure that we're only uploading files (and not directories)
       if (fs.lstatSync(filePath).isFile()) {
         return new Promise((resolve, reject) => {
-          const uploadStream = bucket.openUploadStream(file);
+          const uploadStream = bucket.openUploadStream(file, {
+  metadata: { category: "tops" }
+});
           fs.createReadStream(filePath).pipe(uploadStream);
 
           // Handle finish and error events

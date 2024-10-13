@@ -39,7 +39,7 @@ function App() {
               />
               <Route path="/home" element={<Home />} />
               <Route path="/menu" element={<Menu />} />
-              <Route path="/tops" element={<ProductGrid />} />
+              <Route path="/tops" element={<ProductGrid selectedCategory="tops" />} />
               <Route path="/cart" element={<Cart />} />
               <Route
                 path="/"
