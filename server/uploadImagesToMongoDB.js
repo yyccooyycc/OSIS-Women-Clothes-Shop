@@ -66,29 +66,36 @@ MongoClient.connect(url)
     });
 
     // Route to fetch images by category from MongoDB
-    app.get('/api/images/:category', (req, res) => {
+    app.get('/api/images/:category', async(req, res) => {
       const { category } = req.params;
+      console.log(`Fetching images for category: ${category}`);
       const filesCursor = db.collection('fs.files').find({ 'metadata.category': category });
+try {
+    const files = await db.collection('fs.files')
+                          .find({ 'metadata.category': category })
+                          .toArray();
 
-      filesCursor.toArray((err, files) => {
-        if (err) {
-          return res.status(500).json({ message: 'Failed to fetch images' });
-        }
-        
-        if (!files || files.length === 0) {
-          return res.status(404).json({ message: 'No images found for this category' });
-        }
+    console.log('Files retrieved from database:', files);
 
-        // Return file metadata, e.g., file names and other details
-        const fileInfos = files.map(file => ({
-          filename: file.filename,
-          id: file._id
-        }));
-        console.log(fileInfos)
+    if (!files || files.length === 0) {
+      return res.status(404).json({ message: 'No images found for this category' });
+    }
 
-        res.status(200).json(fileInfos);
-      });
-    });
+    const fileInfos = files.map(file => ({
+      filename: file.filename,
+      id: file._id,
+      url: `/api/images/download/${file._id}`,
+      metadata: file.metadata,
+      price: "N/A"
+    }));
+
+    console.log('File information:', fileInfos);
+    res.status(200).json(fileInfos);
+  } catch (err) {
+    console.error('Error fetching files:', err);
+    res.status(500).json({ message: 'Failed to fetch images' });
+  }
+});
 
     // Route to download a specific image by its ID
     app.get('/api/images/download/:id', (req, res) => {
