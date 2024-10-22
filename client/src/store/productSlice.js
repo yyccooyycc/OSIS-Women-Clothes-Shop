@@ -4,7 +4,7 @@ export const fetchImages = createAsyncThunk(
   "products/fetchImages",
   async (category) =>{
   try {
-    const response = await fetch(`/api/images/${category}`);
+    const response = await fetch(`http://localhost:3001/api/images/${category}`);
     const imageList = await response.json();
 
     imageList.forEach(image => {

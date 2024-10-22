@@ -12,7 +12,7 @@ const dbName = "OSISWomenClothings";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
 // Connect to MongoDB
