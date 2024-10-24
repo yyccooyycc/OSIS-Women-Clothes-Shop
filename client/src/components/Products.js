@@ -61,10 +61,11 @@ const ProductGrid = ({selectedCategory}) => {
   const { t } = useTranslation();
 
   const { images, loading, error } = useSelector((state) => state.products);
-
+  console.log('Images in Redux:', images);
 
   useEffect(() => {
     if(selectedCategory){
+      console.log('selectedCategory, ',selectedCategory)
       dispatch(fetchImages(selectedCategory));
 
     }
@@ -109,11 +110,11 @@ const ProductGrid = ({selectedCategory}) => {
               <CardMedia
                 component="img"
                 height="350"
-                image={image.url}
-                alt={image.metadata.category}
+                image={`http://localhost:3001${image.url}`}
+                alt={image.metadata?.category || "Image"}
               />
               <CardContent>
-                <Typography variant="h6">{image.name}</Typography>
+                <Typography variant="h6">{image.filename}</Typography>
                 <Typography variant="body2" color="text.secondary">
                   {image.price}
                 </Typography>

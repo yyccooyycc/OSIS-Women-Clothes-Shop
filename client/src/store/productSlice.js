@@ -3,19 +3,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchImages = createAsyncThunk(
   "products/fetchImages",
   async (category) =>{
-  try {
     const response = await fetch(`http://localhost:3001/api/images/${category}`);
+    if (!response.ok) throw new Error('Failed to fetch images');
     const imageList = await response.json();
-
-    imageList.forEach(image => {
-      // Use the image's filename or ID to display the image
-      const imageUrl = `http://localhost:3001/api/images/download/${image.id}`;
-      console.log(`Image URL: ${imageUrl}`);
-      // Display the image on the frontend (e.g., in an <img> tag)
-    });
-  } catch (err) {
-    console.error('Failed to fetch images:', err);
-  }}
+    return imageList;
+  }
 );
 
 const productSlice = createSlice({
@@ -34,7 +26,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchImages.fulfilled, (state, action) => {
         state.loading = false;
-        state.images.push(action.payload);
+        state.images = action.payload;
       })
       .addCase(fetchImages.rejected, (state, action) => {
         state.loading = false;

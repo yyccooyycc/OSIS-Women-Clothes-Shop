@@ -12,7 +12,7 @@ const dropdownSlice = createSlice({
   reducers: {
     toggle: (state) => {
         state.isOpen = !state.isOpen;
-
+        dropdownState$.next(state);
     }
   },
 });
