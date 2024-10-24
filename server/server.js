@@ -1,4 +1,4 @@
-import { MongoClient, GridFSBucket } from "mongodb";
+import { MongoClient, ObjectId , GridFSBucket } from "mongodb";
 import express from "express";
 import cors from "cors";
 import fs from 'fs';
@@ -66,48 +66,53 @@ MongoClient.connect(url)
     });
 
     // Route to fetch images by category from MongoDB
-    app.get('/api/images/:category', async(req, res) => {
+    app.get("/api/images/:category", async (req, res) => {
       const { category } = req.params;
       console.log(`Fetching images for category: ${category}`);
-      const filesCursor = db.collection('fs.files').find({ 'metadata.category': category });
-try {
-    const files = await db.collection('fs.files')
-                          .find({ 'metadata.category': category })
-                          .toArray();
+      try {
+        const files = await db
+          .collection("fs.files")
+          .find({ "metadata.category": category })
+          .toArray();
 
-    console.log('Files retrieved from database:', files);
+        console.log("Files retrieved from database:", files);
 
-    if (!files || files.length === 0) {
-      return res.status(404).json({ message: 'No images found for this category' });
-    }
+        if (!files || files.length === 0) {
+          return res
+            .status(404)
+            .json({ message: "No images found for this category" });
+        }
 
-    const fileInfos = files.map(file => ({
-      filename: file.filename,
-      id: file._id,
-      url: `/api/images/download/${file._id}`,
-      metadata: file.metadata,
-      price: "N/A"
-    }));
+        const fileInfos = files.map((file) => ({
+          filename: file.filename,
+          id: file._id,
+          url: `/api/images/download/${file._id}`,
+          metadata: file.metadata,
+          price: "N/A",
+        }));
 
-    console.log('File information:', fileInfos);
-    res.status(200).json(fileInfos);
-  } catch (err) {
-    console.error('Error fetching files:', err);
-    res.status(500).json({ message: 'Failed to fetch images' });
-  }
-});
+        console.log("File information:", fileInfos);
+        res.status(200).json(fileInfos);
+      } catch (err) {
+        console.error("Error fetching files:", err);
+        res.status(500).json({ message: "Failed to fetch images" });
+      }
+    });
 
     // Route to download a specific image by its ID
     app.get('/api/images/download/:id', (req, res) => {
       const { id } = req.params;
 
       try {
-        const downloadStream = bucket.openDownloadStreamByName(id);
+        const objectId = new ObjectId(id);  
+        const downloadStream = bucket.openDownloadStream(objectId);
         
         downloadStream.on('error', () => {
+          console.error('Stream Error:', error);
           res.status(404).json({ message: 'Image not found' });
         });
 
+        res.set('Content-Type', 'image/jpeg');
         downloadStream.pipe(res);
       } catch (err) {
         console.error('Error downloading image:', err);

@@ -15,46 +15,6 @@ import {
   Grid2
 } from "@mui/material";
 
-// const fakeProducts = [
-//   {
-//     id: 1,
-//     name: "Top 1",
-//     price: "$30",
-//     image: "https://via.placeholder.com/200/300",
-//   },
-//   {
-//     id: 2,
-//     name: "Top 2",
-//     price: "$40",
-//     image: "https://via.placeholder.com/200/300",
-//   },
-//   {
-//     id: 3,
-//     name: "Pant 1",
-//     price: "$50",
-//     image: "https://via.placeholder.com/200/300",
-//   },
-//   {
-//     id: 4,
-//     name: "Pant 2",
-//     price: "$60",
-//     image: "https://via.placeholder.com/200/300",
-//   },
-//   {
-//     id: 5,
-//     name: "Pant 3",
-//     price: "$50",
-//     image: "https://via.placeholder.com/200/300",
-//   },
-//   {
-//     id: 6,
-//     name: "Pant 4",
-//     price: "$60",
-//     image: "https://via.placeholder.com/200/300",
-//   },
-// ];
-
-
 const ProductGrid = ({selectedCategory}) => {
   console.log(selectedCategory)
   const dispatch = useDispatch();
@@ -110,7 +70,7 @@ const ProductGrid = ({selectedCategory}) => {
               <CardMedia
                 component="img"
                 height="350"
-                image={`http://localhost:3001${image.url}`}
+                image={`http://localhost:3001/api/images/download/${image.id}`}
                 alt={image.metadata?.category || "Image"}
               />
               <CardContent>
