@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start-client": "react-scripts start",
-    "start-server": "node ../server/uploadImagesToMongoDB.js",
+    "start-server": "node ../server/server.js",
     "build": "react-scripts build",
     "dev": "concurrently \"npm run start-client\" \"npm run start-server\"",
     "test": "react-scripts test",
