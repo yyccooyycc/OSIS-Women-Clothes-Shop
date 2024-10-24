@@ -7,13 +7,15 @@ function Home(){
     return (
         <div>
             <HeroBanner/>
-            <h2>{t('Home')}</h2>
-            <p>{t('Welcome')}</p>
+            <p></p>
             <img
             src={require("../assets/images/tony-frost-wAujJ8jc134-unsplash.jpg")}
             alt="Banner 4"
             width="1000px"
+            style={{ margin: '0 auto', display: 'block' }}
             />
+            <p></p>
+
         </div>
     )
 }

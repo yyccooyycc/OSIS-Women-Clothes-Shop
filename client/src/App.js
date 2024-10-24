@@ -39,7 +39,13 @@ function App() {
               />
               <Route path="/home" element={<Home />} />
               <Route path="/menu" element={<Menu />} />
+              <Route path="/best-sellers" element={<ProductGrid selectedCategory="best-sellers" />} />
               <Route path="/tops" element={<ProductGrid selectedCategory="tops" />} />
+              <Route path="/t-shirts" element={<ProductGrid selectedCategory="t-shirts" />} />
+              <Route path="/dresses" element={<ProductGrid selectedCategory="dresses" />} />
+              <Route path="/pants" element={<ProductGrid selectedCategory="pants" />} />
+              <Route path="/jackets" element={<ProductGrid selectedCategory="jackets" />} />
+              <Route path="/coats" element={<ProductGrid selectedCategory="coats" />} />
               <Route path="/cart" element={<Cart />} />
               <Route
                 path="/"
