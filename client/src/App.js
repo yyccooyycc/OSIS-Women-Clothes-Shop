@@ -42,6 +42,7 @@ function App() {
               <Route path="/best-sellers" element={<ProductGrid selectedCategory="best-sellers" />} />
               <Route path="/tops" element={<ProductGrid selectedCategory="tops" />} />
               <Route path="/t-shirts" element={<ProductGrid selectedCategory="t-shirts" />} />
+              <Route path="/skirts" element={<ProductGrid selectedCategory="skirts" />} />
               <Route path="/dresses" element={<ProductGrid selectedCategory="dresses" />} />
               <Route path="/pants" element={<ProductGrid selectedCategory="pants" />} />
               <Route path="/jackets" element={<ProductGrid selectedCategory="jackets" />} />

@@ -11,7 +11,17 @@ const DropdownMenu = () => {
   const { t } = useTranslation();
   const menuItems = ["BEST SELLERS", "TOPS","T-SHIRTS", "DRESSES", "SKIRTS", "PANTS", "JACKETS", "COATS"];
   const dropdownRef = useRef(null);
-
+  const menuRoutes = {
+    "BEST SELLERS": "/best-sellers",
+    "TOPS": "/tops",
+    "T-SHIRTS": "/t-shirts",
+    "DRESSES": "/dresses",
+    "SKIRTS": "/skirts",
+    "PANTS": "/pants",
+    "JACKETS": "/jackets",
+    "COATS": "/coats",
+  };
+  
   useEffect(() => {
     const subscription = dropdownState$.subscribe((state) => {
       setIsOpen(state.isOpen);
@@ -81,7 +91,7 @@ const DropdownMenu = () => {
             <ul className="menu-list">
               {menuItems.map((item, index) => (
                 <Link
-                  to="/tops"
+                  to={menuRoutes[item]}
                   className="menu-link"
                   key={`${item}-${index}`}
                   onClick={handleItemClick}
