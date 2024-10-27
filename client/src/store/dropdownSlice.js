@@ -4,6 +4,7 @@ import { BehaviorSubject } from "rxjs";
 
 const initialState = {
   isOpen: false,
+  category:{selected:null}
 };
 
 const dropdownSlice = createSlice({
@@ -13,11 +14,15 @@ const dropdownSlice = createSlice({
     toggle: (state) => {
         state.isOpen = !state.isOpen;
         dropdownState$.next(state);
-    }
+    },
+    setCategory: (state, action) => {
+      state.category.selected = action.payload;
+      dropdownState$.next(state);
+    },
   },
 });
 
-export const { toggle } = dropdownSlice.actions;
+export const { toggle,setCategory } = dropdownSlice.actions;
 
 const dropdownState$ = new BehaviorSubject(initialState);
 const subscribeToReduxStore = (store) => {
