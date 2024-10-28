@@ -89,7 +89,7 @@ MongoClient.connect(url)
           id: file._id,
           url: `/api/images/download/${file._id}`,
           metadata: file.metadata,
-          price: `$ ${randomPrices[Math.floor(Math.random() * randomPrices.length)]}`,
+          price: `${randomPrices[Math.floor(Math.random() * randomPrices.length)]}`,
         }));
 
         console.log("File information:", fileInfos);

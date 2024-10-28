@@ -82,7 +82,7 @@ const ProductGrid = ({selectedCategory}) => {
               <CardContent>
                 <Typography variant="h6">{getNameFromImage(image.filename)}</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {image.price}
+                  {`$${image.price}`}
                 </Typography>
                 <Button
                   variant="contained"

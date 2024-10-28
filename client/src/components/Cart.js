@@ -18,14 +18,19 @@ function Cart() {
   const totalPrice = useMemo(() => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }, [cart]);
+  const getNameFromImage = (imageName) => {
+    const nameWithoutExt = imageName.toUpperCase().split('.')[0];
+    const nameParts = nameWithoutExt.split(/[-_]/);
+    return nameParts[0]; 
+  };
 
   return (
     <div>
-      <h2>Cart</h2>
+      <h2>{t("Shopping_Cart")}</h2>
       <ul>
         {cart.map((item) => (
           <li key={item.id}>
-            {item.name} : ${item.price} x {item.quantity}
+            {getNameFromImage(item.filename)} : ${item.price} x {item.quantity}
             <button onClick={() => handleRemoveFromCart(item)}>{t('Remove')}</button>
           </li>
         ))}
