@@ -13,27 +13,6 @@ const DropdownMenu = () => {
   const menuItems = ["BEST SELLERS", "TOPS","T-SHIRTS", "DRESSES", "SKIRTS", "PANTS", "JACKETS", "COATS"];
   const dropdownRef = useRef(null);
   const selectedCategory = useSelector((state) => state.dropdown.category.selected);
-//   const getRoute = (category) => {
-//     console.log(category)
-//   switch (category) {
-//     case "BEST SELLERS":
-//       return "/best-sellers";
-//     case "T-SHIRTS":
-//       return "/t-shirts";
-//     case "DRESSES":
-//       return "/dresses";
-//     case "SKIRTS":
-//       return "/skirts";
-//     case "PANTS":
-//       return "/pants";
-//     case "JACKETS":
-//       return "/jackets";
-//     case "COATS":
-//       return "/coats";
-//     default:
-//       return "/tops"; // 預設路徑
-//   }
-// };
   
   useEffect(() => {
     const subscription = dropdownState$.subscribe((state) => {
