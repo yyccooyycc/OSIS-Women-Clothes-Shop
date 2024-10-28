@@ -11,6 +11,7 @@ const url = "mongodb://localhost:27017";
 const dbName = "OSISWomenClothings";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const randomPrices = [1000, 1350, 2580, 4200]
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
@@ -88,7 +89,7 @@ MongoClient.connect(url)
           id: file._id,
           url: `/api/images/download/${file._id}`,
           metadata: file.metadata,
-          price: "N/A",
+          price: `$ ${randomPrices[Math.floor(Math.random() * randomPrices.length)]}`,
         }));
 
         console.log("File information:", fileInfos);

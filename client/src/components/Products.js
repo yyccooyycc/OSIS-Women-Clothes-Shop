@@ -22,6 +22,12 @@ const ProductGrid = ({selectedCategory}) => {
 
   const { images, loading, error } = useSelector((state) => state.products);
   console.log('Images in Redux:', images);
+  const getNameFromImage = (imageName) => {
+    const nameWithoutExt = imageName.toUpperCase().split('.')[0];
+    const nameParts = nameWithoutExt.split(/[-_]/);
+    return nameParts[0]; 
+  };
+  
 
   useEffect(() => {
     if(selectedCategory){
@@ -74,7 +80,7 @@ const ProductGrid = ({selectedCategory}) => {
                 alt={image.metadata?.category || "Image"}
               />
               <CardContent>
-                <Typography variant="h6">{image.filename}</Typography>
+                <Typography variant="h6">{getNameFromImage(image.filename)}</Typography>
                 <Typography variant="body2" color="text.secondary">
                   {image.price}
                 </Typography>
