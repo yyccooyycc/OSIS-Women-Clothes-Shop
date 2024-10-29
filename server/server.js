@@ -126,6 +126,39 @@ MongoClient.connect(url)
     console.error("Error connecting to MongoDB:", err);
   });
 
+  app.get('/api/search', (req, res) => {
+    const { keyword, category } = req.query;
+    console.log(`Searching for keyword: ${keyword}, category: ${category}`);
+  
+    const filter = {};
+  
+    if (keyword) {
+      filter.name = { $regex: keyword, $options: 'i' };
+    }
+    if (category) {
+      filter['metadata.category'] = category;
+    }
+  
+    db.collection('fs.files')
+      .find(filter)
+      .toArray((err, files) => {
+        if (err) {
+          console.error('Error fetching search results:', err);
+          return res.status(500).json({ message: 'Failed to fetch results' });
+        }
+  
+        const results = files.map(file => ({
+          filename: file.filename,
+          category: file.metadata.category,
+          id: file._id,
+        }));
+  
+        console.log('Search results:', results);
+        res.status(200).json(results);
+      });
+  });
+  
+
 // Start the server
 const PORT = 3001;
 app.listen(PORT, () => {
