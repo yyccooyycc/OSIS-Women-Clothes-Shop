@@ -21,6 +21,8 @@ const ProductGrid = ({selectedCategory}) => {
   const { t } = useTranslation();
 
   const { images, loading, error } = useSelector((state) => state.products);
+  const items = useSelector((state) => state.search.results);
+
   console.log('Images in Redux:', images);
   const getNameFromImage = (imageName) => {
     const nameWithoutExt = imageName.toUpperCase().split('.')[0];
