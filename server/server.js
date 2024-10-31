@@ -121,12 +121,7 @@ MongoClient.connect(url)
       }
     });
 
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
-  });
-
-  app.get('/api/search', (req, res) => {
+    app.get('/api/search', (req, res) => {
     const { keyword, category } = req.query;
     console.log(`Searching for keyword: ${keyword}, category: ${category}`);
   
@@ -156,7 +151,13 @@ MongoClient.connect(url)
         console.log('Search results:', results);
         res.status(200).json(results);
       });
+    });
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
   });
+
+  
   
 
 // Start the server
