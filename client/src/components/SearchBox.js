@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchResults, toggleSearchBox } from '../store/searchSlice';
-
+import "../styles/SearchBox.scss"
 const SearchBox = () => {
   const [keyword, setKeyword] = useState('');
   const dispatch = useDispatch();
@@ -18,15 +18,14 @@ const SearchBox = () => {
   };
 
   return (
-    <div style={{ position: 'relative', top: '30px', left: '40px', background: '#fff', padding: '10px', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '4px' }}>
+    <div className="search-box">
       <input
         type="text"
         placeholder="Search items..."
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
-        style={{ padding: '5px', marginRight: '5px' }}
-      />
-      <button onClick={handleSearch}>Search</button>
+        className="search-input"      />
+        <button onClick={handleSearch} className="search-button">Search</button>
     </div>
   );
 };
