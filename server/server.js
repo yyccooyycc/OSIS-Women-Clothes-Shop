@@ -121,41 +121,41 @@ MongoClient.connect(url)
       }
     });
 
-    app.get('/api/search', (req, res) => {
+    app.get('/api/search', async(req, res) => {
+    try {
     const { keyword, category } = req.query;
     console.log(`Searching for keyword: ${keyword}, category: ${category}`);
-  
+    
     const filter = {};
-  
     if (keyword) {
-      filter.name = { $regex: keyword, $options: 'i' };
+      filter.$or = [
+        { filename: { $regex: new RegExp(keyword, 'i') } },
+        { "metadata.category": { $regex: new RegExp(keyword, 'i') } }
+      ];
     }
-    if (category) {
-      filter['metadata.category'] = category;
+
+    console.log('Filter applied:', filter);
+    const files = await db.collection('fs.files').find(filter).toArray();
+    console.log('Find query triggered, files:', files);
+
+    if (files.length === 0) {
+      console.log('No matching documents found');
+      return res.status(200).json({ noResults: true });
+    } else {
+      const results = files.map(file => ({
+        filename: file.filename,
+        category: file.metadata.category,
+        id: file._id,
+      }));
+      console.log('Search results:', results);
+      res.status(200).json(results);
     }
-  
-    db.collection('fs.files')
-      .find(filter)
-      .toArray((err, files) => {
-        if (err) {
-          console.error('Error fetching search results:', err);
-          return res.status(500).json({ message: 'Failed to fetch results' });
-        }
-  
-        const results = files.map(file => ({
-          filename: file.filename,
-          category: file.metadata.category,
-          id: file._id,
-        }));
-  
-        console.log('Search results:', results);
-        res.status(200).json(results);
-      });
-    });
+  } catch (err) {
+    console.error("Error fetching search results:", err);
+    res.status(500).json({ message: 'Failed to fetch results' });
+  }
+});
   })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
-  });
 
   
   

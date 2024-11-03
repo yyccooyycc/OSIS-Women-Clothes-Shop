@@ -16,6 +16,7 @@ const productSlice = createSlice({
     images: [],
     loading: false,
     error: null,
+    noResults:false,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -27,10 +28,12 @@ const productSlice = createSlice({
       .addCase(fetchImages.fulfilled, (state, action) => {
         state.loading = false;
         state.images = action.payload;
+        state.noResults = action.payload.length === 0;
       })
       .addCase(fetchImages.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+        state.noResults = false;
         console.error('Fetch images error:', action.error);
       });
   },

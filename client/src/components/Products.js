@@ -55,6 +55,17 @@ const ProductGrid = ({selectedCategory}) => {
     );
   }
 
+  const displayItems = items.length > 0 ? items : images;
+
+  if (displayItems.length === 0) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
+        <Typography variant="h6">{t("No results found")}</Typography>
+      </Box>
+    );
+  }
+  
+
   return (
     <Box
       sx={{
@@ -72,7 +83,7 @@ const ProductGrid = ({selectedCategory}) => {
         sx={{ width: "90%" }}
         justifyContent="center"
       >
-        {images.map((image) => (
+        {displayItems.map((image) => (
           <Grid2 item xs={12} sm={6} md={3} lg={4} key={image.id}>
             <Card>
               <CardMedia
