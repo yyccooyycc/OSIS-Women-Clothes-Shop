@@ -146,6 +146,7 @@ MongoClient.connect(url)
         filename: file.filename,
         category: file.metadata.category,
         id: file._id,
+        price: `${randomPrices[Math.floor(Math.random() * randomPrices.length)]}`,
       }));
       console.log('Search results:', results);
       res.status(200).json(results);
