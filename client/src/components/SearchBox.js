@@ -5,6 +5,7 @@ import "../styles/SearchBox.scss"
 const SearchBox = () => {
   const dispatch = useDispatch();
   const keyword = useSelector((state) => state.search.keyword);
+  // const noResults = useSelector((state) => state.search.noResults);
 
   const handleSearch = async () => {
     try {
@@ -13,6 +14,7 @@ const SearchBox = () => {
       dispatch(setSearchResults(data));
     } catch (error) {
       console.error('Error fetching search results:', error);
+      // dispatch(setNoResults(true));
     }
   };
 
@@ -25,6 +27,9 @@ const SearchBox = () => {
         onChange={(e) => dispatch(setKeyword(e.target.value))}
         className="search-input"      />
         <button onClick={handleSearch} className="search-button">Search</button>
+        {/* {noResults && (
+        <div className="no-results-message">No Results</div>
+      )} */}
     </div>
   );
 };

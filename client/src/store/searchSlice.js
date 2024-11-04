@@ -7,7 +7,8 @@ const searchSlice = createSlice({
     results: [],
     loading: false, 
     error: null, 
-    keyword:''
+    keyword:'',
+    // noResults:false,
   },
   reducers: {
     toggleSearchBox: (state) => {
@@ -16,13 +17,16 @@ const searchSlice = createSlice({
     setSearchResults: (state, action) => {
       state.results = action.payload;
       state.keyword = action.payload.keyword
+      // state.noResults = action.payload.length === 0;
     },
     setKeyword: (state, action) => {
       state.keyword = action.payload;
     },
+    // setNoResults: (state, action) => {
+    //   state.noResults = action.payload;
+    // },
   },
 });
 
-export const { toggleSearchBox, setSearchResults, clearSearchResults, 
-  setLoading, setError, setKeyword } = searchSlice.actions;
+export const { toggleSearchBox, setSearchResults, setKeyword, setNoResults  } = searchSlice.actions;
 export default searchSlice.reducer;

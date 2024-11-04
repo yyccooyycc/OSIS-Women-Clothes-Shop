@@ -13,6 +13,7 @@
     "Welcome":"Welcome to OASIS shop",
     "Add_to_Cart":"Add to Cart",
     "Remove":"Remove",
-    "Shopping_Cart":"Your shopping cart:"
+    "Shopping_Cart":"Your shopping cart:",
+    "No_Results_Found":"No results found"
 
 }
