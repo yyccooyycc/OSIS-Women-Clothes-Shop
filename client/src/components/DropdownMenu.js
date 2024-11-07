@@ -1,29 +1,22 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useEffect,useRef } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { toggle,setCategory, dropdownState$ } from "../store/dropdownSlice";
+import { toggle,setCategory,closeDropdown } from "../store/dropdownSlice";
 import "../styles/App.scss";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const DropdownMenu = () => {
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(dropdownState$.getValue().isOpen);
-  const [rxState,setRxState] = useState(dropdownState$.getValue());
+  const isOpen = useSelector((state) => state.dropdown.isOpen);
+  const selectedCategory = useSelector((state) => state.dropdown.category.selected);
   const { t } = useTranslation();
   const menuItems = ["BEST SELLERS", "TOPS","T-SHIRTS", "DRESSES", "SKIRTS", "PANTS", "JACKETS", "COATS"];
   const dropdownRef = useRef(null);
-  const selectedCategory = useSelector((state) => state.dropdown.category.selected);
   
   useEffect(() => {
-    const subscription = dropdownState$.subscribe((state) => {
-      setIsOpen(state.isOpen);
-      setRxState(state);
-    });
-    
-
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
+        dispatch(closeDropdown());
       }
     };
      
@@ -31,13 +24,11 @@ const DropdownMenu = () => {
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      subscription.unsubscribe();
     };
-  }, []);
+  }, [dispatch]);
 
   const handleItemClick=(category)=>{
     dispatch(setCategory(category));
-    dispatch(toggle());
   }
 
   return (

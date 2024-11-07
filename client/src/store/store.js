@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import cartSlice from './cartSlice';
 import authSlice from './authSlice';
 import productReducer from './productSlice';
-import { dropdownReducer, subscribeToReduxStore } from "./dropdownSlice";
+import { dropdownReducer } from "./dropdownSlice";
 import searchSlice from './searchSlice';
 
 
@@ -15,8 +15,6 @@ const store = configureStore({
     search:searchSlice
   },
 });
-
-subscribeToReduxStore(store);
 
 
 export default store;
