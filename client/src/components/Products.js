@@ -38,6 +38,7 @@ const ProductGrid = ({selectedCategory}) => {
 
     }
   }, [selectedCategory,dispatch]);
+  const displayItems = items.length > 0 ? items : images;
 
   if (loading) {
     return (
@@ -55,7 +56,6 @@ const ProductGrid = ({selectedCategory}) => {
     );
   }
 
-  const displayItems = items.length > 0 ? items : images;
 
   if (displayItems.length === 0) {
     return (

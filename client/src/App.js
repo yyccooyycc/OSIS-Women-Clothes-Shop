@@ -22,6 +22,8 @@ import ProductGrid from "./components/Products";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const searchResults = useSelector((state) => state.search.results);
+
   return (
     <div className="app-container">
       <div>
@@ -47,6 +49,7 @@ function App() {
               <Route path="/pants" element={<ProductGrid selectedCategory="pants" />} />
               <Route path="/jackets" element={<ProductGrid selectedCategory="jackets" />} />
               <Route path="/coats" element={<ProductGrid selectedCategory="coats" />} />
+              <Route path="/search-results" element={<ProductGrid searchResults={searchResults} />} />
               <Route path="/cart" element={<Cart />} />
               <Route
                 path="/"
