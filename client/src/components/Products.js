@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
 import { useTranslation } from "react-i18next";
-
 import { fetchImages } from "../store/productSlice";
 import {
   Box,
@@ -23,7 +22,6 @@ const ProductGrid = ({selectedCategory}) => {
   const { images, loading, error } = useSelector((state) => state.products);
   const items = useSelector((state) => state.search.results);
 
-  console.log('Images in Redux:', images);
   const getNameFromImage = (imageName) => {
     const nameWithoutExt = imageName.toUpperCase().split('.')[0];
     const nameParts = nameWithoutExt.split(/[-_]/);
@@ -38,7 +36,7 @@ const ProductGrid = ({selectedCategory}) => {
 
     }
   }, [selectedCategory,dispatch]);
-  const displayItems = items.length > 0 ? items : images;
+  const displayItems = (items.length > 0 ? items : images) || [];
 
   if (loading) {
     return (
